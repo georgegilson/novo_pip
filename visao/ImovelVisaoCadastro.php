@@ -78,8 +78,8 @@ Sessao::gerarToken();
                     <label>Condição</label>
                     <select name="sltCondicao" id="sltCondicao">
                         <option value="">Condição</option>
-                        <option value="novo">Novo</option>
-                        <option value="usado">Usado</option>
+                        <option value="Novo">Novo</option>
+                        <option value="Usado">Usado</option>
                     </select>
                 </div>   
 

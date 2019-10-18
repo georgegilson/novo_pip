@@ -1144,7 +1144,7 @@ function confirmarCadastroImovel() {
             if ($("#form").valid()) {
                 if ($("#hdnCEP").val() != "") {
                     if ($("#itensBairro").val() != "" && $("#txtNumero").val() != "") {
-                        carregaDadosModalImovel($("#textoConfirmacao"));
+                        carregaDadosModalImovel($("#textoConfirmacao"),$("#sltCondicao").val() );
                         $('#modalConfirmar').modal({
                             closable: true,
                             transition: "fade up",
@@ -1193,14 +1193,6 @@ function carregaDadosModalImovel($div) {
                             </div></div>\n\
                     </div>\n\
                     <div class='ui hidden divider'></div>");
-  
-        
-        if($("#sltCondicao").val() == 'novo' || $("#sltCondicao").val() == 'NOVO'){
-            $("#sltCondicao").val('Novo');
-        } 
-        if($("#sltCondicao").val() == 'usado' || $("#sltCondicao").val() == 'USADO'){
-            $("#sltCondicao").val('Usado');
-        }
 
         switch ($("#sltTipo").val()) {
             case "1":
