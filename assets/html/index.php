@@ -30,6 +30,15 @@
                 '        </i>\n' +
                 '    Ordenar</a>'
             )
+            $('.ui.range.slider')
+                .slider({
+                    min: 1,
+                    max: 10,
+                    start: 1,
+                    end: 10,
+                    step: 1
+                })
+            ;
         }
 
         $("#btnPesquisaMobile").on('click', function () {
@@ -398,7 +407,7 @@ if ($item) {
     </div>
     <div class="scrolling content">
         <div class="ui large form">
-            <div class="ui stackable six column grid">
+            <div class="ui stackable column grid">
                 <div class="column"></div>
                 <div class="column">
                     <select name="sltTipoImovel" id="sltTipoImovel">
@@ -432,30 +441,37 @@ if ($item) {
                 <div id="sltBairro">
                 </div>
 
-                <!--<div class="column" id="divCondicao">
-                    <select name="sltCidade" id="sltCidade">
-                        <option value="">Todas</option>
-                        <option value="novo">Novo</option>
-                        <option value="usado">Usado</option>
-                    </select>
+                <div class="column">
+                    <input type="text" name="first-name" placeholder="Valor Mínimo">
+                </div>
+                <div class="column">
+                    <input type="text" name="first-name" placeholder="Valor Máximo">
+                </div>
 
+                <div class="column">
+                    <div class="ui floated compact segment">
+                    <div class="ui toggle checkbox">
+                            <input type="checkbox" tabindex="0" class="hidden" name="checkgaragem" id="checkgaragem">
+                            <label>Garagem</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="column">
+                    <div class="ui labeled ticked range slider" id="slider-range"></div>
                 </div>-->
-
-                          <!--<div class="column" id="divGaragem">
-                                <div class="ui left floated compact segment">
-                                    <div class="ui fitted toggle checkbox">
-                                        <input type="checkbox" name="checkgaragem" id="checkgaragem">
-
-                                    </div>
-                                    <label>Garagem</label>
-                                </div>
-                            </div>-->
+                <div class="column">
+                <button class="ui basic fluid large button">
+                    <i class="icon plus"></i>
+                    Mais Filtros
+                </button>
+                </div>
 
             </div>
 
-            <div class="ui stackable four column centered grid">
+            <div class="ui bottom fixed menu stackable centered grid">
                 <div class="column">
-                    <div class="ui twitter icon fluid button" id="btnBuscarAnuncioBasico">
+                    <div class="ui twitter icon fluid large button" id="btnBuscarAnuncioBasico">
                         <i class="search icon"></i>
                         Procurar
                     </div>

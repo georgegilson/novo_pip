@@ -361,7 +361,6 @@ class AnuncioControle {
         unset($parametros["hdnCodAnuncio"]);
         $parametros["tabela"] = $parametros["hdnTipoImovel"];
         unset($parametros["hdnTipoImovel"]);
-
         if($parametros["mobileDevice"] == true){
             $typeDevice = true;
         }
