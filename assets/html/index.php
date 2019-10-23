@@ -408,10 +408,9 @@ if ($item) {
     <div class="scrolling content">
         <div class="ui large form">
             <div class="ui stackable column grid">
-                <div class="column"></div>
                 <div class="column">
                     <select name="sltTipoImovel" id="sltTipoImovel">
-                        <option value=""> Todos os tipos</option>
+                        <option value=""> Tipo do Imóvel </option>
                         <option value="apartamento"> Apartamento</option>
                         <option value="apartamentoplanta"> Apartamento na Planta</option>
                         <option value="casa"> Casa</option>
@@ -422,14 +421,14 @@ if ($item) {
                 </div>
                 <div class="column">
                     <select name="sltFinalidade" id="sltFinalidade">
-                        <option value=""> Todas as finalidades</option>
+                        <option value=""> Aluguel ou Venda</option>
                         <option value="aluguel">Aluguel</option>
                         <option value="venda">Venda</option>
                     </select>
                 </div>
                 <div class="column">
                     <select name="sltCidade" id="sltCidade">
-                        <option value="">Todas as cidades</option>
+                        <option value="">Cidade</option>
                         <option value="1">Belém</option>
                         <option value="2">Ananindeua</option>
                         <option value="3">Marituba</option>
@@ -467,7 +466,15 @@ if ($item) {
                 </button>
                 </div>
 
+
+
+                <div class="column"></div>
+                <div class="column"></div>
+                <div class="column"></div>
+
+
             </div>
+            <div class="column"></div>
 
             <div class="ui bottom fixed menu stackable centered grid">
                 <div class="column">
