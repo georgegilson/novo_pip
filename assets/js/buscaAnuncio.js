@@ -2098,6 +2098,54 @@ function inicio() {
 
         })
 
+        if(testMobile())
+        {
+            $('#menuMobile').html(
+                '<a class="icon item" id="btnMenuMobile">\n' +
+                '        <i class="content large icon">\n' +
+                '        </i></a>\n' +
+                '    <a class="item" id="btnPesquisaMobile">\n' +
+                '        <i class="search icon">\n' +
+                '        </i>\n' +
+                '    Buscar Anúncio</a>\n' +
+                '    <a class="item" id="btnOrdencacaoMobile">\n' +
+                '        <i class="sort icon">\n' +
+                '        </i>\n' +
+                '    Ordenar</a>'
+            )
+
+        }
+
+        $("#btnPesquisaMobile").on('click', function () {
+            $('.overlay.fullscreen.modal')
+                .modal('show')
+            ;
+        })
+
+        $("#btnOrdencacaoMobile").on('click', function () {
+            $("#modalOrdenacao")
+                .modal('show')
+            ;
+        })
+
+        $("#btnMenuMobile").on('click', function () {
+            $('.ui.sidebar')
+                .sidebar('toggle');
+        })
+
+        $("#btnMaisFiltrosMobile").on('click', function () {
+            $('#columnMaisFiltros').remove();
+            $('#maisFiltros').html('<div class="field"><label>Quartos</label><div class="ui labeled ticked range slider" id="slider-range"></div></div>\n');
+            $('.ui.range.slider')
+                .slider({
+                    min: 1,
+                    max: 10,
+                    start: 1,
+                    end: 10,
+                    step: 1
+                });
+        })
+
     });
 }
 

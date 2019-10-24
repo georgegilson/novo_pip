@@ -13,55 +13,6 @@
     carregarDiferencial();
     ordenarAnuncio();
 
-    $(document).ready(function () {
-
-        if(testMobile())
-        {
-            $('#menuMobile').html(
-                '<a class="icon item" id="btnMenuMobile">\n' +
-                '        <i class="content large icon">\n' +
-                '        </i></a>\n' +
-                '    <a class="item" id="btnPesquisaMobile">\n' +
-                '        <i class="search icon">\n' +
-                '        </i>\n' +
-                '    Buscar Anúncio</a>\n' +
-                '    <a class="item" id="btnOrdencacaoMobile">\n' +
-                '        <i class="sort icon">\n' +
-                '        </i>\n' +
-                '    Ordenar</a>'
-            )
-            $('.ui.range.slider')
-                .slider({
-                    min: 1,
-                    max: 10,
-                    start: 1,
-                    end: 10,
-                    step: 1
-                })
-            ;
-        }
-
-        $("#btnPesquisaMobile").on('click', function () {
-            $('.overlay.fullscreen.modal')
-                .modal('show')
-            ;
-        })
-
-        $("#btnOrdencacaoMobile").on('click', function () {
-            $("#modalOrdenacao")
-                .modal('show')
-            ;
-        })
-
-        $("#btnMenuMobile").on('click', function () {
-            $('.ui.sidebar')
-                .sidebar('toggle');
-        })
-
-
-    });
-
-
 </script>
 
 
@@ -459,14 +410,17 @@ if ($item) {
                 <!--<div class="column">
                     <div class="ui labeled ticked range slider" id="slider-range"></div>
                 </div>-->
-                <div class="column">
-                <button class="ui basic fluid large button">
+                <div class="column" id="columnMaisFiltros">
+                <button class="ui basic fluid large button" id="btnMaisFiltrosMobile">
                     <i class="icon plus"></i>
                     Mais Filtros
                 </button>
                 </div>
 
+                <div class="column" id="maisFiltros">
 
+
+                </div>
 
                 <div class="column"></div>
                 <div class="column"></div>
