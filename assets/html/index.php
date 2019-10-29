@@ -398,8 +398,8 @@ if ($item) {
                     <input type="text" name="first-name" placeholder="Valor Máximo">
                 </div>
 
-                <div class="column">
-                    <div class="ui floated compact segment">
+                <div class="column" id="divGaragemMobile">
+                    <div class="ui segment">
                     <div class="ui toggle checkbox">
                             <input type="checkbox" tabindex="0" class="hidden" name="checkgaragem" id="checkgaragem">
                             <label>Garagem</label>
@@ -407,19 +407,11 @@ if ($item) {
                     </div>
                 </div>
 
-                <!--<div class="column">
-                    <div class="ui labeled ticked range slider" id="slider-range"></div>
-                </div>-->
                 <div class="column" id="columnMaisFiltros">
-                <button class="ui basic fluid large button" id="btnMaisFiltrosMobile">
+                <button class="ui basic fluid large button disabled" id="btnMaisFiltrosMobile">
                     <i class="icon plus"></i>
                     Mais Filtros
                 </button>
-                </div>
-
-                <div class="column" id="maisFiltros">
-
-
                 </div>
 
                 <div class="column"></div>

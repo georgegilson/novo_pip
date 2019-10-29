@@ -2135,7 +2135,14 @@ function inicio() {
 
         $("#btnMaisFiltrosMobile").on('click', function () {
             $('#columnMaisFiltros').remove();
-            $('#maisFiltros').html('<div class="field"><label>Quartos</label><div class="ui labeled ticked range slider" id="slider-range"></div></div>\n');
+            $('#divGaragemMobile').after('<div class="column" id="mobQuartos"><div class="ui segment"><div class="ui top attached label">Quartos</div><div class="field"><div class="ui labeled ticked range slider" id="slider-range"></div></div></div></div>\n' +
+                '<div class="column" id="mobBanheiros"><div class="ui segment"><div class="ui top attached label">Banheiros</div><div class="field"><div class="ui labeled ticked range slider" id="slider-range"></div></div></div></div>\n' +
+                '<div class="column" id="mobSuites"><div class="ui segment"><div class="ui top attached label">Suites</div><div class="field"><div class="ui labeled ticked range slider" id="slider-range"></div></div></div></div>\n' +
+                '<div class="column" id="mobGaragem"><div class="ui segment"><div class="ui top attached label">Vagas de Garagem</div><div class="field"><div class="ui labeled ticked range slider" id="slider-range"></div></div></div></div>\n' +
+                '<div class="column" id="mobApAndar"><div class="ui segment"><div class="ui top attached label">Apartamentos por Andar</div><div class="field"><div class="ui labeled ticked range slider" id="slider-range"></div></div></div></div>\n' +
+                '<div class="column" id="mobAreaMin"><input type="text" name="first-name" placeholder="Área Mínima (m2)"></div>\n' +
+                '<div class="column" id="mobAreaMax"><input type="text" name="first-name" placeholder="Área Máxima (m2)"></div>\n' +
+                '');
             $('.ui.range.slider')
                 .slider({
                     min: 1,
@@ -2145,6 +2152,76 @@ function inicio() {
                     step: 1
                 });
         })
+
+        $("#sltTipoImovel").change(function (){
+            if($(this).val() != null || $(this).val() != ""){
+                $("#btnMaisFiltrosMobile").removeClass("disabled");
+            }
+
+            if($(this).val() == ""){
+                $("#btnMaisFiltrosMobile").addClass("disabled");
+            }
+
+            switch ($(this).val()) {
+                case "casa":
+                    $("#mobQuartos").show();
+                    $("#mobBanheiros").show();
+                    $("#mobSuites").show();
+                    $("#mobGaragem").show();
+                    $("#mobApAndar").hide();
+                    $("#mobAreaMin").show();
+                    $("#mobAreaMax").show();
+                    break;
+                case "apartamento":
+                    $("#mobQuartos").show();
+                    $("#mobBanheiros").show();
+                    $("#mobSuites").show();
+                    $("#mobApAndar").show();
+                    $("#mobGaragem").show();
+                    $("#mobAreaMin").show();
+                    $("#mobAreaMax").show();
+                    break;
+                case "apartamentoplanta":
+                    $("#mobQuartos").show();
+                    $("#mobBanheiros").show();
+                    $("#mobSuites").show();
+                    $("#mobApAndar").show();
+                    $("#mobGaragem").show();
+                    $("#mobAreaMin").show();
+                    $("#mobAreaMax").show();
+                    break;
+                case "salacomercial":
+                    $("#mobQuartos").hide();
+                    $("#mobBanheiros").show();
+                    $("#mobSuites").hide();
+                    $("#mobApAndar").hide();
+                    $("#mobGaragem").show();
+                    $("#mobAreaMin").show();
+                    $("#mobAreaMax").show();
+                    break;
+                case "prediocomercial":
+                    $("#mobQuartos").hide();
+                    $("#mobBanheiros").hide();
+                    $("#mobSuites").hide();
+                    $("#mobApAndar").hide();
+                    $("#mobGaragem").hide();
+                    $("#mobAreaMin").show();
+                    $("#mobAreaMax").show();
+                    break;
+                case "terreno":
+                    $("#mobQuartos").hide();
+                    $("#mobBanheiros").hide();
+                    $("#mobSuites").hide();
+                    $("#mobApAndar").hide();
+                    $("#mobGaragem").hide();
+                    $("#mobAreaMin").show();
+                    $("#mobAreaMax").show();
+                    break;
+            }
+
+        });
+
+
 
     });
 }
