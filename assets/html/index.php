@@ -392,10 +392,10 @@ if ($item) {
                 </div>
 
                 <div class="column">
-                    <input type="text" name="first-name" placeholder="Valor Mínimo">
+                    <input type="text" name="txtValorMin" id="txtValorMin" placeholder="Valor Mínimo">
                 </div>
                 <div class="column">
-                    <input type="text" name="first-name" placeholder="Valor Máximo">
+                    <input type="text" name="txtValorMax" id="txtValorMax" placeholder="Valor Máximo">
                 </div>
 
                 <div class="column" id="divGaragemMobile">

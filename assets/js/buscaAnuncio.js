@@ -538,7 +538,8 @@ function buscarAnuncio() {
             }
             $('#divAnuncios').load("index.php", {hdnEntidade: 'Anuncio', hdnAcao: 'buscarAnuncio',
                 tipoImovel: tipoimovel,
-                valor: $('#sltValor').val(),
+                valorMin: $('#txtValorMin').val(),
+                valorMax: $('#txtValorMax').val(),
                 finalidade: $('#sltFinalidade').val(),
                 idcidade: $('#sltCidade').val(),
                 idbairro: $('#filtroBairro').val(),
@@ -679,17 +680,19 @@ function carregarAnuncio() { //valor = quantidade de anuncios
                     url: 'index.php',
                     type: 'post',
                     data: {
-                        tipoImovel: 'todos',
-                        valor: '',
-                        finalidade: '',
-                        cidade: '',
-                        bairro: '',
-                        quarto: '',
-                        banheiro: '',
-                        suite: '',
-                        condicao: '',
-                        unidadesandar: '',
-                        area: '',
+                        tipoImovel: tipoimovel,
+                        valorMin: $('#txtValorMin').val(),
+                        valorMax: $('#txtValorMax').val(),
+                        finalidade: $('#sltFinalidade').val(),
+                        idcidade: $('#sltCidade').val(),
+                        idbairro: $('#filtroBairro').val(),
+                        quarto: $('#sltQuartos').val(),
+                        banheiro: $('#sltBanheiros').val(),
+                        suite: $('#sltSuites').val(),
+                        condicao: $('#sltCondicao').val(),
+                        unidadesandar: $('#sltUnidadesAndar').val(),
+                        areaMin: $('#sltAreaMin').val(),
+                        areaMax: $('#sltAreaMax').val(),
                         linha: linha,
                         paginaInicial: 'false',
                         mobile: 'true',
@@ -715,7 +718,9 @@ function carregarAnuncio() { //valor = quantidade de anuncios
 
                             var linhanumero = linha + itensPorLinha;
                             if (linhanumero > total) {
-                                $("#carregarMais").addClass("disabled");
+                                $("#carregarMais").hide();
+//                                $("#carregarMais").addClass("disabled");
+//                                $("#carregarMais").removeClass("loading");
                             } else {
                                 $("#carregarMais").removeClass("disabled loading");
                             }

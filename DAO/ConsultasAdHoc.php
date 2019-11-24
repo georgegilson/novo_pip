@@ -17,9 +17,13 @@ class ConsultasAdHoc extends GenericoDAO {
                 unset($parametros['predicados'][$chave]);
             }
         }
-        if (isset($parametros['predicados']['valor']) && $parametros['predicados']['valor'] >= 0) {
-            $preco = $parametros['predicados']['valor'];
-            unset($parametros['predicados']['valor']);
+        if (isset($parametros['predicados']['valorMin']) && $parametros['predicados']['valorMin'] >= 0) {
+            $precoMin = $parametros['predicados']['valorMin'];
+            unset($parametros['predicados']['valorMin']);
+        }
+        if (isset($parametros['predicados']['valorMax']) && $parametros['predicados']['valorMax'] >= 0) {
+            $precoMax = $parametros['predicados']['valorMax'];
+            unset($parametros['predicados']['valorMax']);
         }
         if (isset($parametros['predicados']['valor']) && $parametros['predicados']['area'] != "") {
             $area = $parametros['predicados']['area'];
@@ -85,12 +89,12 @@ class ConsultasAdHoc extends GenericoDAO {
         if ($garagem == 'true') {
             $sql = $sql . ' AND garagem > 0 ';
         }
-        if ($preco != NULL) {
-            if ($preco >= 0 && $preco < 1000000) {
-                $sql = $sql . ' AND valormin BETWEEN ' . $preco . ' AND ' . ($preco + 100000);
-            } else {
-                $sql = $sql . ' AND valormin > ' . $preco;
-            }
+        if ($precoMin != NULL && $precoMax != NULL) {
+            //if ($preco >= 0 && $preco < 1000000) {
+                $sql = $sql . ' AND valormin BETWEEN ' . $precoMin . ' AND ' . $precoMax;
+            //} else {
+                //$sql = $sql . ' AND valormin > ' . $preco;
+            //}
         }
         if ($area != NULL) {
             if ($area >= 0 && $area < 220) {
