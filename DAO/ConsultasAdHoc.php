@@ -90,11 +90,11 @@ class ConsultasAdHoc extends GenericoDAO {
             $sql = $sql . ' AND garagem > 0 ';
         }
         if ($precoMin != NULL && $precoMax != NULL) {
-            //if ($preco >= 0 && $preco < 1000000) {
                 $sql = $sql . ' AND valormin BETWEEN ' . $precoMin . ' AND ' . $precoMax;
-            //} else {
-                //$sql = $sql . ' AND valormin > ' . $preco;
-            //}
+        } else if ($precoMin != NULL && $precoMax == NULL) {
+                $sql = $sql . ' AND valormin > ' . $precoMin;
+        }else if($precoMin == NULL && $precoMax != NULL){
+            $sql = $sql . ' AND valormin < ' . $precoMax;
         }
         if ($area != NULL) {
             if ($area >= 0 && $area < 220) {
