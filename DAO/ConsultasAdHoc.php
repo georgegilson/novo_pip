@@ -94,7 +94,7 @@ class ConsultasAdHoc extends GenericoDAO {
         } else if ($precoMin != NULL && $precoMax == NULL) {
                 $sql = $sql . ' AND valormin > ' . $precoMin;
         }else if($precoMin == NULL && $precoMax != NULL){
-            $sql = $sql . ' AND valormin < ' . $precoMax;
+                $sql = $sql . ' AND valormin < ' . $precoMax;
         }
         if ($area != NULL) {
             if ($area >= 0 && $area < 220) {

@@ -415,21 +415,17 @@ if ($item) {
                 </div>
 
                 <div class="column"></div>
-                <div class="column"></div>
-                <div class="column"></div>
 
 
             </div>
             <div class="column"></div>
 
-            <div class="ui bottom fixed menu stackable centered grid">
                 <div class="column">
                     <div class="ui twitter icon fluid large button" id="btnBuscarAnuncioBasico">
                         <i class="search icon"></i>
                         Procurar
                     </div>
                 </div>
-            </div>
 
         </div>
     </div>

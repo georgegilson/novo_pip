@@ -555,8 +555,7 @@ function buscarAnuncio() {
                 linha: $('#paginaLinha').val(),
                 id: $('#hdUsuario').val(),
                 diferencial: $('#carregarDiferenciais').val(),
-                //           },
-                //               garagem: $('#checkgaragem').parent().checkbox('is checked') 
+                garagem: $('#checkgaragem').parent().checkbox('is checked')
             });
         });
 
@@ -670,6 +669,9 @@ function carregarAnuncio() { //valor = quantidade de anuncios
             ordenarAnuncio();
             exibirEnviarComparar();
             $('#carregarMais').click(function () {
+                if ($('#sltTipoImovel').val() == "") {
+                    tipoimovel = "todos"
+                }
                 var linha = Number($('#paginaLinha').val());
                 var total = Number($('#hdnTotalAnuncios').val());
                 var itensPorLinha = 4;
@@ -717,10 +719,8 @@ function carregarAnuncio() { //valor = quantidade de anuncios
                             })
 
                             var linhanumero = linha + itensPorLinha;
-                            if (linhanumero > total) {
+                            if (linhanumero => total) {
                                 $("#carregarMais").hide();
-//                                $("#carregarMais").addClass("disabled");
-//                                $("#carregarMais").removeClass("loading");
                             } else {
                                 $("#carregarMais").removeClass("disabled loading");
                             }
@@ -729,13 +729,7 @@ function carregarAnuncio() { //valor = quantidade de anuncios
                 });
 
                 } else {
-                    $("#carregarMais").addClass("disabled");
-//                    setTimeout(function () {
-//                        $('.list-item:nth-child(4)').nextAll('.list-item').remove();
-//                        $("#linha").val(0);
-//                        $('.load-more').text("Load more");
-//                        $('.load-more').css("background", "#15a9ce");
-//                    }, 2000);
+                    $("#carregarMais").hide();
                 }
             });
         } else {
@@ -2140,7 +2134,9 @@ function inicio() {
 
         $("#btnMaisFiltrosMobile").on('click', function () {
             $('#columnMaisFiltros').remove();
-            $('#divGaragemMobile').after('<div class="column" id="mobQuartos"><div class="ui segment"><div class="ui top attached label">Quartos</div><div class="field"><div class="ui labeled ticked range slider" id="slider-range"></div></div></div></div>\n' +
+            $('#divGaragemMobile').after('<div class="column" id="mobQuartos"><div class="ui segment"><div class="ui top attached label">Quartos</div><div class="field"><div class="ui labeled ticked range slider" id="slider-quarto"></div></div></div></div>\n' +
+                '<input type="hidden" id="hdnQuartoMin" name="hdnQuartoMin"/>\n' +
+                '<input type="hidden" id="hdnQuartoMax" name="hdnQuartoMax"/>\n' +
                 '<div class="column" id="mobBanheiros"><div class="ui segment"><div class="ui top attached label">Banheiros</div><div class="field"><div class="ui labeled ticked range slider" id="slider-range"></div></div></div></div>\n' +
                 '<div class="column" id="mobSuites"><div class="ui segment"><div class="ui top attached label">Suites</div><div class="field"><div class="ui labeled ticked range slider" id="slider-range"></div></div></div></div>\n' +
                 '<div class="column" id="mobGaragem"><div class="ui segment"><div class="ui top attached label">Vagas de Garagem</div><div class="field"><div class="ui labeled ticked range slider" id="slider-range"></div></div></div></div>\n' +
@@ -2156,7 +2152,22 @@ function inicio() {
                     end: 10,
                     step: 1
                 });
+            $('#slider-quarto').slider(
+                {
+                    min: 1,
+                    max: 10,
+                    start: 1,
+                    end: 10,
+                    step: 1,
+                    onChange: function (range, firstVal, secondVal) {
+                        $("#hdnQuartoMin").val(firstVal);
+                        $("#hdnQuartoMax").val(secondVal);
+                    }
+                }
+            );
         })
+
+
 
         $("#sltTipoImovel").change(function (){
             if($(this).val() != null || $(this).val() != ""){
