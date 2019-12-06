@@ -388,7 +388,10 @@ if ($item) {
                     </select>
                 </div>
 
-                <div id="sltBairro">
+                <!--<div id="sltBairro">
+                </div>-->
+
+                <div id="dropBairro">
                 </div>
 
                 <div class="column">
