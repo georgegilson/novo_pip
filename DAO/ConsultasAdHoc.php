@@ -41,10 +41,31 @@ class ConsultasAdHoc extends GenericoDAO {
             $diferencial = $parametros['predicados']['diferencial'];
             unset($parametros['predicados']['diferencial']);
         }
-        if ($parametros['predicados']['quarto'] == 5) {
+        if ($parametros['predicados']['quarto']) {
             $quartos = $parametros['predicados']['quarto'];
             unset($parametros['predicados']['quarto']);
         }
+        if ($parametros['predicados']['banheiro']) {
+            $banheiro = $parametros['predicados']['banheiro'];
+            unset($parametros['predicados']['banheiro']);
+        }
+        if ($parametros['predicados']['suite']) {
+            $suite = $parametros['predicados']['suite'];
+            unset($parametros['predicados']['suite']);
+        }
+        if ($parametros['predicados']['unidadesandar']) {
+            $unidadesandar = $parametros['predicados']['unidadesandar'];
+            unset($parametros['predicados']['unidadesandar']);
+        }
+        if ($parametros['predicados']['areaMin'] && $parametros['predicados']['areaMin'] >= 0) {
+            $areaMin = $parametros['predicados']['areaMin'];
+            unset($parametros['predicados']['areaMin']);
+        }
+        if ($parametros['predicados']['areaMax'] && $parametros['predicados']['areaMax'] >= 0) {
+            $areaMax = $parametros['predicados']['areaMax'];
+            unset($parametros['predicados']['areaMax']);
+        }
+
         if (isset($parametros['predicados']['linha'])) {
             $linha = $parametros['predicados']['linha'];
             unset($parametros['predicados']['linha']);
@@ -109,9 +130,27 @@ class ConsultasAdHoc extends GenericoDAO {
                         . 'WHERE tid.idimovel = vbapp.idimovel AND tid.iddiferencial = :idDiferencial' . $j . ')';
             }
         }
-        if ($quartos == 5) {
-            $sql = $sql . ' AND quarto >= 5 ';
+        if ($quartos) {
+            $sql = $sql . ' AND quarto >= ' . $quartos;
         }
+        if ($banheiro) {
+            $sql = $sql . ' AND banheiro >= ' . $banheiro;
+        }
+        if ($suite) {
+            $sql = $sql . ' AND suite >= ' . $suite;
+        }
+        if ($unidadesandar) {
+            $sql = $sql . ' AND unidadesandar >= ' . $unidadesandar;
+        }
+
+        if ($areaMin != NULL && $areaMax != NULL) {
+            $sql = $sql . ' AND area BETWEEN ' . $areaMin . ' AND ' . $areaMax;
+        } else if ($areaMin != NULL && $areaMax == NULL) {
+            $sql = $sql . ' AND area > ' . $areaMin;
+        }else if($areaMin == NULL && $areaMax != NULL){
+            $sql = $sql . ' AND area < ' . $areaMax;
+        }
+
         if ($parametros["idanuncio"] == null) {
 
             $sql = $sql . " AND status = 'cadastrado' ";
