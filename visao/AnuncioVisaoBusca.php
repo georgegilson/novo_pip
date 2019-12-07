@@ -68,6 +68,7 @@
 
 
 <form id="formAnuncios" action="index.php" method="post" target='_blank'>
+    <input type="hidden" id="hdnOrdemMob" name="hdnOrdemMob"/>
     <input type="hidden" id="hdnEntidade" name="hdnEntidade"/>
     <input type="hidden" id="hdnAcao" name="hdnAcao"/>
     <input type="hidden" id="hdnCodAnuncio" name="hdnCodAnuncio"/>

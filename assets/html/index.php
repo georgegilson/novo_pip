@@ -336,17 +336,15 @@ if ($item) {
 
     </div>
 
-
-
 <div class="ui modal" id="modalOrdenacao">
     <div class="content">
-        <a id="menorValor"><h2 class="ui header">Maior Valor</h2></a>
+        <a id="maiorValor"><h2 class="ui header">Maior Valor</h2></a>
         <div class="ui divider"></div>
-        <h2 class="ui header">Menor Valor</h2>
+        <a id="menorValor"><h2 class="ui header">Menor Valor</h2></a>
         <div class="ui divider"></div>
-        <h2 class="ui header">Mais Recente</h2>
+        <a id="maisRecente"><h2 class="ui header">Mais Recente</h2></a>
         <div class="ui divider"></div>
-        <h2 class="ui header">Mais Antigo</h2>
+        <a id="maisAntigo"><h2 class="ui header">Mais Antigo</h2></a>
     </div>
 </div>
 
