@@ -2148,59 +2148,199 @@ function inicio() {
 
         $("#btnMaisFiltrosMobile").on('click', function () {
             $('#columnMaisFiltros').remove();
-            $('#divGaragemMobile').after(
-                '<div class="column" id="mobQuartos">' +
-                '<select name="sltQuartos" id="sltQuartos">\n' +
-                '<option value="">Nº de Quartos</option>\n' +
-                '<option value="1">1+</option>\n' +
-                '<option value="2">2+</option>\n' +
-                '<option value="3">3+</option>\n' +
-                '<option value="4">4+</option>\n' +
-                '<option value="5">5+</option>\n' +
-                '</select>\n' +
-                '</div>' +
-                '<div class="column" id="mobBanheiros">' +
-                '<select name="sltBanheiros" id="sltBanheiros">\n' +
-                '<option value="">Nº de Banheiros</option>\n' +
-                '<option value="1">1+</option>\n' +
-                '<option value="2">2+</option>\n' +
-                '<option value="3">3+</option>\n' +
-                '<option value="4">4+</option>\n' +
-                '<option value="5">5+</option>\n' +
-                '</select>\n' +
-                '</div>' +
-                '<div class="column" id="mobSuites">' +
-                '<select name="sltSuites" id="sltSuites">\n' +
-                '<option value="">Nº de Suites</option>\n' +
-                '<option value="1">1+</option>\n' +
-                '<option value="2">2+</option>\n' +
-                '<option value="3">3+</option>\n' +
-                '<option value="4">4+</option>\n' +
-                '<option value="5">5+</option>\n' +
-                '</select>\n' +
-                '</div>' +
-                '<div class="column" id="mobGaragem">' +
-                '<select name="sltGaragem" id="sltGaragem">\n' +
-                '<option value="">Nº de Garagens</option>\n' +
-                '<option value="2">2+</option>\n' +
-                '<option value="3">3+</option>\n' +
-                '<option value="4">4+</option>\n' +
-                '<option value="5">5+</option>\n' +
-                '</select>\n' +
-                '</div>' +
-                '<div class="column" id="mobApAndar">' +
-                '<select name="sltUnidadesAndar" id="sltUnidadesAndar">\n' +
-                '<option value="">Apartamentos por Andar</option>\n' +
-                '<option value="1">1+</option>\n' +
-                '<option value="2">2+</option>\n' +
-                '<option value="3">3+</option>\n' +
-                '<option value="4">4+</option>\n' +
-                '<option value="5">5+</option>\n' +
-                '</select>\n' +
-                '</div>' +
-                '<div class="column" id="mobAreaMin"><input type="text" name="first-name" placeholder="Área Mínima (m2)"></div>\n' +
-                '<div class="column" id="mobAreaMax"><input type="text" name="first-name" placeholder="Área Máxima (m2)"></div>\n' +
-                '');
+            if($('#sltTipoImovel').val() == "casa"){
+                $('#divGaragemMobile').after(
+                    '<div class="column" id="mobQuartos">' +
+                    '<select name="sltQuartos" id="sltQuartos">\n' +
+                    '<option value="">Nº de Quartos</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobBanheiros">' +
+                    '<select name="sltBanheiros" id="sltBanheiros">\n' +
+                    '<option value="">Nº de Banheiros</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobSuites">' +
+                    '<select name="sltSuites" id="sltSuites">\n' +
+                    '<option value="">Nº de Suites</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobGaragem">' +
+                    '<select name="sltGaragem" id="sltGaragem">\n' +
+                    '<option value="">Nº de Garagens</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobAreaMin"><input type="text" name="first-name" placeholder="Área Mínima (m2)"></div>\n' +
+                    '<div class="column" id="mobAreaMax"><input type="text" name="first-name" placeholder="Área Máxima (m2)"></div>\n' +
+                    '');
+            }
+            if($('#sltTipoImovel').val() == "apartamento"){
+                $('#divGaragemMobile').after(
+                    '<div class="column" id="mobQuartos">' +
+                    '<select name="sltQuartos" id="sltQuartos">\n' +
+                    '<option value="">Nº de Quartos</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobBanheiros">' +
+                    '<select name="sltBanheiros" id="sltBanheiros">\n' +
+                    '<option value="">Nº de Banheiros</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobSuites">' +
+                    '<select name="sltSuites" id="sltSuites">\n' +
+                    '<option value="">Nº de Suites</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobGaragem">' +
+                    '<select name="sltGaragem" id="sltGaragem">\n' +
+                    '<option value="">Nº de Garagens</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobApAndar">' +
+                    '<select name="sltUnidadesAndar" id="sltUnidadesAndar">\n' +
+                    '<option value="">Apartamentos por Andar</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobAreaMin"><input type="text" name="first-name" placeholder="Área Mínima (m2)"></div>\n' +
+                    '<div class="column" id="mobAreaMax"><input type="text" name="first-name" placeholder="Área Máxima (m2)"></div>\n' +
+                    '');
+            }
+            if($('#sltTipoImovel').val() == "apartamentoplanta"){
+                $('#divGaragemMobile').after(
+                    '<div class="column" id="mobQuartos">' +
+                    '<select name="sltQuartos" id="sltQuartos">\n' +
+                    '<option value="">Nº de Quartos</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobBanheiros">' +
+                    '<select name="sltBanheiros" id="sltBanheiros">\n' +
+                    '<option value="">Nº de Banheiros</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobSuites">' +
+                    '<select name="sltSuites" id="sltSuites">\n' +
+                    '<option value="">Nº de Suites</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobGaragem">' +
+                    '<select name="sltGaragem" id="sltGaragem">\n' +
+                    '<option value="">Nº de Garagens</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobApAndar">' +
+                    '<select name="sltUnidadesAndar" id="sltUnidadesAndar">\n' +
+                    '<option value="">Apartamentos por Andar</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobAreaMin"><input type="text" name="first-name" placeholder="Área Mínima (m2)"></div>\n' +
+                    '<div class="column" id="mobAreaMax"><input type="text" name="first-name" placeholder="Área Máxima (m2)"></div>\n' +
+                    '');
+            }
+            if($('#sltTipoImovel').val() == "prediocomercial"){
+                $('#divGaragemMobile').after(
+                    '<div class="column" id="mobAreaMin"><input type="text" name="first-name" placeholder="Área Mínima (m2)"></div>\n' +
+                    '<div class="column" id="mobAreaMax"><input type="text" name="first-name" placeholder="Área Máxima (m2)"></div>\n' +
+                    '');
+            }
+            if($('#sltTipoImovel').val() == "salacomercial"){
+                $('#divGaragemMobile').after(
+                    '<div class="column" id="mobBanheiros">' +
+                    '<select name="sltBanheiros" id="sltBanheiros">\n' +
+                    '<option value="">Nº de Banheiros</option>\n' +
+                    '<option value="1">1+</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobGaragem">' +
+                    '<select name="sltGaragem" id="sltGaragem">\n' +
+                    '<option value="">Nº de Garagens</option>\n' +
+                    '<option value="2">2+</option>\n' +
+                    '<option value="3">3+</option>\n' +
+                    '<option value="4">4+</option>\n' +
+                    '<option value="5">5+</option>\n' +
+                    '</select>\n' +
+                    '</div>' +
+                    '<div class="column" id="mobAreaMin"><input type="text" name="first-name" placeholder="Área Mínima (m2)"></div>\n' +
+                    '<div class="column" id="mobAreaMax"><input type="text" name="first-name" placeholder="Área Máxima (m2)"></div>\n' +
+                    '');
+            }
+            if($('#sltTipoImovel').val() == "terreno"){
+                $('#divGaragemMobile').after(
+                    '<div class="column" id="mobAreaMin"><input type="text" name="first-name" placeholder="Área Mínima (m2)"></div>\n' +
+                    '<div class="column" id="mobAreaMax"><input type="text" name="first-name" placeholder="Área Máxima (m2)"></div>\n' +
+                    '');
+            }
+
         })
 
 
