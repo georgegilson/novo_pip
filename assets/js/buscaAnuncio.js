@@ -680,8 +680,7 @@ function carregarAnuncio() { //valor = quantidade de anuncios
             if (linha >= total) {
                 $("#carregarMais").addClass("disabled");
             }
-            ordenarAnuncioMob();
-            ordenarAnuncio();
+            ordenarAnuncioMobbtns();
             exibirEnviarComparar();
             $('#carregarMais').click(function () {
                 if ($('#sltTipoImovel').val() == "") {
@@ -753,7 +752,6 @@ function carregarAnuncio() { //valor = quantidade de anuncios
                     .dropdown({clearable: true})
                     ;
             paginarAnuncio();
-            ordenarAnuncioMob();
             ordenarAnuncio();
 
             exibirEnviarComparar();
@@ -770,33 +768,32 @@ function carregarAnuncio() { //valor = quantidade de anuncios
 
 }
 
-function ordenarAnuncioMob() {
+function ordenarAnuncioMobbtns() {
     $("#menorValor").click(function () {
         $("#modalOrdenacao").modal('hide');
         $("#hdnOrdemMob").val("mnvalor");
-        ordenarAnuncio();
+        ordenarAnuncioMob();
     });
     $("#maiorValor").click(function () {
         $("#modalOrdenacao").modal('hide');
         $("#hdnOrdemMob").val("mrvalor");
-        ordenarAnuncio();
+        ordenarAnuncioMob();
     });
     $("#maisRecente").click(function () {
         $("#modalOrdenacao").modal('hide');
         $("#hdnOrdemMob").val("recente");
-        ordenarAnuncio();
+        ordenarAnuncioMob();
     });
     $("#maisAntigo").click(function () {
         $("#modalOrdenacao").modal('hide');
         $("#hdnOrdemMob").val("antigo");
-        ordenarAnuncio();
+        ordenarAnuncioMob();
     });
 
 }
 
-function ordenarAnuncio()
+function ordenarAnuncioMob()
 {
-    //$("#sltOrdenacao").change(function () {
     if ($("#hdnOrdemMob").val() == "mnvalor") {
         var $valor = $('#itemContainer'),
             $valorli = $valor.children('div');
@@ -903,10 +900,120 @@ function ordenarAnuncio()
     }
 
     $valorli.detach().appendTo($valor);
+}
+
+function ordenarAnuncio()
+{
+    $("#sltOrdenacao").change(function () {
+    if ($(this).val() == "mnvalor") {
+        var $valor = $('#itemContainer'),
+            $valorli = $valor.children('div');
+
+        $valorli.sort(function (a, b) {
+            var an = parseInt(a.getAttribute('data-valor')),
+                bn = parseInt(b.getAttribute('data-valor')),
+                ap = a.getAttribute('ordem'),
+                bp = b.getAttribute('ordem');
+
+            if (an > bn) {
+                return 1;
+            }
+            if (an < bn) {
+                return -1;
+            }
+            if (an == bn) {
+                if (ap < bp) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+//                return 0;
+        });
+
+    } else if ($(this).val() == "mrvalor") {
+        var $valor = $('#itemContainer'),
+            $valorli = $valor.children('div');
+
+        $valorli.sort(function (a, b) {
+            var an = parseInt(a.getAttribute('data-valor')),
+                bn = parseInt(b.getAttribute('data-valor')),
+                ap = a.getAttribute('ordem'),
+                bp = b.getAttribute('ordem');
+
+            if (an < bn) {
+                return 1;
+            }
+            if (an > bn) {
+                return -1;
+            }
+            if (an == bn) {
+                if (ap < bp) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+            //return 0;
+        });
+    } else if ($(this).val() == "antigo") {
+
+        var $valor = $('#itemContainer'),
+            $valorli = $valor.children('div');
+
+        $valorli.sort(function (a, b) {
+
+            var an = a.getAttribute('data-cadastro'),
+                bn = b.getAttribute('data-cadastro'),
+                ap = a.getAttribute('ordem'),
+                bp = b.getAttribute('ordem');
+
+            if (an > bn) {
+                return 1;
+            }
+            if (an < bn) {
+                return -1;
+            }
+            if (an == bn) {
+                if (ap < bp) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+            //return 0;
+        });
+    } else if ($(this).val() == "recente") {
+        var $valor = $('#itemContainer'),
+            $valorli = $valor.children('div');
+
+        $valorli.sort(function (a, b) {
+            var an = a.getAttribute('data-cadastro'),
+                bn = b.getAttribute('data-cadastro'),
+                ap = a.getAttribute('ordem'),
+                bp = b.getAttribute('ordem');
+
+            if (an < bn) {
+                return 1;
+            }
+            if (an > bn) {
+                return -1;
+            }
+            if (an == bn) {
+                if (ap < bp) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+            //return 0;
+        });
+    }
+
+    $valorli.detach().appendTo($valor);
     $("div.holder").jPages("destroy");
     paginarAnuncio();
-    //});
-
+    });
 }
 
 

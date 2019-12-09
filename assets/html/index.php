@@ -11,7 +11,7 @@
     buscarAnuncio();
     carregarCarrosselPreferencias();
     carregarDiferencial();
-    ordenarAnuncio();
+    //ordenarAnuncio();
 
 </script>
 
