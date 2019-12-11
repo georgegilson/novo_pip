@@ -47,14 +47,14 @@ if (count($item['anuncio']) > 0) {
                         }
                         ?> 
                         <!--                                <div class="left floated header">Venda</div>-->
-                        <div class="right floated meta">
+                        <!--<div class="right floated meta">
                             <a href="https://www.facebook.com/sharer.php?u=https://www.pipbeta.com.br/<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>" target="_blank"><i class="large blue facebook square icon"></i></a>
                             <a href="https://twitter.com/intent/tweet?text=Anúncio%20Compartilhado%20via%20PIP-OnLine%20https%3A%2F%2Fwww.pipbeta.com.br%2F<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>" target="_blank"><i class="large blue twitter icon"></i></a>
                             <a href="https://plus.google.com/share?url=https://www.pipbeta.com.br/<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>" target="_blank"><i class="large red google plus circle icon"></i></a>
                             <a class="compartilhar-whatsapp" href='whatsapp://send?text=https://www.pipbeta.com.br/<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>'><i class="large green whatsapp icon"></i></a>
-                            <!--                                        <div class="ui primary button" id="copiarBotao" onclick="copiar()">Copiar Link Anúncio</div>-->
+                                                                    <div class="ui primary button" id="copiarBotao" onclick="copiar()">Copiar Link Anúncio</div>
                         </div>                                
-                    </div>
+                    </div>-->
                     <!--                             <div class="ui divider"></div>-->
                     <div class="ui grid">
                         <div class="ui centered row">
@@ -181,21 +181,30 @@ if (count($item['anuncio']) > 0) {
 
                         </div>
                         <br />
-                        <div class="ui one column center aligned grid">
+                        <!--<div class="ui one column center aligned grid">
                             <div class="column">
                                 <a class='ui twitter button' href="<?php echo PIPURL; ?><?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>" target="_blank">+ Detalhes</a>
                             </div>
-                        </div>       
-                    </div>
-                    <div class="extra content">      
-                        <div class="ui checkbox">
-                            <input type="checkbox" name="selecionarAnuncio[]" id="selecionarAnuncio_<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>" value="<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>">
-                            <label id="idsAnuncios">Selecionar</label>
+                        </div> -->
+                        <div class="meta">
+                            <span class="date"><?php echo FuncoesAuxiliares::tempo_corrido($item['anuncio'][$crtl]['datahoracadastro']) ?><?php ?></span>
                         </div>
-                        <span class="right floated">
-                            <?php echo FuncoesAuxiliares::tempo_corrido($item['anuncio'][$crtl]['datahoracadastro']) ?> <?php ?>
-                        </span>
-                    </div> 
+                    </div>
+                        <div class="extra content">
+                            <!--<div class="ui checkbox">
+                                    <input type="checkbox" name="selecionarAnuncio[]"
+                                           id="selecionarAnuncio_<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>"
+                                           value="<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>">
+                                    <label id="idsAnuncios">Selecionar</label>
+                                </div>-->
+                            <div class="ui one column center aligned grid">
+                                <div class="column">
+                                    <a id="btnDetalhe" class='ui twitter fluid button'
+                                       href="<?php echo PIPURL; ?><?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>"
+                                       target="_blank"> + Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
                 </div> 
             <?php }
             ?>                    

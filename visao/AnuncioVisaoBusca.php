@@ -3,14 +3,7 @@
 <script src="assets/libs/jquery/bootstrap-maxlength.js"></script>
 <script src="assets/libs/jquery/jquery.validate.min.js"></script>
 <script src="assets/libs/pagination/jPages.min.js"></script>
-<!--<script src="assets/libs/jplist/jplist.core.min.js"></script>
-<link href="assets/libs/jplist/jplist.core.min.css" rel="stylesheet" type="text/css" />
-<script src="assets/libs/jplist/jplist.sort-bundle.min.js"></script>
-<link href="assets/libs/jplist/jplist.pagination-bundle.min.css" rel="stylesheet" type="text/css" />
-<script src="assets/libs/jplist/jplist.pagination-bundle.min.js"></script>-->
 <link href="assets/css/template-pip.css" rel="stylesheet" type="text/css"/>
-<!--<link href="assets/libs/pagination/jPages.css" rel="stylesheet" type="text/css" />-->
-
 
 <script>
 
@@ -118,7 +111,6 @@
                         ?>
                         <div data-valor="<?php echo $item['anuncio'][$crtl]['valormin'] ?>"
                              ordem="<?php echo $item['anuncio'][$crtl]['ordem'] ?>" class="centered card list-item"
-                             style="width: 263px; box-shadow: 0 1px 3px 0 #D4D4DD,0 0 0 1px #000000"
                              id="cartao<?php echo $item['anuncio'][$crtl]['idanuncio'] ?>"
                              data-cadastro="<?php echo $item['anuncio'][$crtl]['datahoracadastro'] ?>">
                             <!--                            <div class="content">
@@ -157,7 +149,7 @@
                                 }
                                 ?>
                                 <!--                                <div class="left floated header">Venda</div>-->
-                                <div class="right floated meta">
+                                <!--<div class="right floated meta">
                                     <a href="https://www.facebook.com/sharer.php?u=https://www.pipbeta.com.br/<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>"
                                        target="_blank"><i class="large blue facebook square icon"></i></a>
                                     <a href="https://twitter.com/intent/tweet?text=Anúncio%20Compartilhado%20via%20PIP-OnLine%20https%3A%2F%2Fwww.pipbeta.com.br%2F<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>"
@@ -167,10 +159,13 @@
                                     <a class="compartilhar-whatsapp"
                                        href='whatsapp://send?text=https://www.pipbeta.com.br/<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>'><i
                                                 class="large green whatsapp icon"></i></a>
-                                    <!--                                        <div class="ui primary button" id="copiarBotao" onclick="copiar()">Copiar Link Anúncio</div>-->
-                                </div>
+                                                                           <div class="ui primary button" id="copiarBotao" onclick="copiar()">Copiar Link Anúncio</div>
+                                </div>-->
                             </div>
                             <!--                             <div class="ui divider"></div>-->
+                            <a class="ui red right corner label">
+                                <i class="share alternate icon"></i>
+                            </a>
                             <div class="ui grid">
                                 <div class="ui centered row">
                                     <h4>
@@ -216,8 +211,9 @@
                                 <div class="ui segment">
                                     <div class="ui three column center aligned grid">
                                         <div class="column">
-                                            <img class="ui center image dimmable"
-                                                 src="../assets/imagens/icones/iconeQuartoPequeno.jpg">&nbsp;
+                                            <!--<img class="ui center image dimmable"
+                                                 src="../assets/imagens/icones/iconeQuartoPequeno.jpg">&nbsp;-->
+                                            <em data-emoji="person_in_bed_tone5" class="small"></em>
                                             <div style="font-size: 12px">
                                                 <?php
                                                 if ($item['anuncio'][$crtl]['tipo'] == "casa" || $item['anuncio'][$crtl]['tipo'] == "apartamento") {
@@ -232,8 +228,9 @@
                                         </div>
 
                                         <div class="column">
-                                            <img class="ui left image"
-                                                 src="../assets/imagens/icones/iconeBanheiroPequeno.jpg">&nbsp;
+                                            <!--<img class="ui left image"
+                                                 src="../assets/imagens/icones/iconeBanheiroPequeno.jpg">&nbsp;-->
+                                            <em data-emoji="toilet" class="small"></em>
                                             <div style="font-size: 12px"><?php
                                                 if ($item['anuncio'][$crtl]['tipo'] == "casa" || $item['anuncio'][$crtl]['tipo'] == "apartamento" || $item['anuncio'][$crtl]['tipo'] == "salacomercial") {
                                                     echo $item['anuncio'][$crtl]['banheiro'];
@@ -247,8 +244,9 @@
                                         </div>
 
                                         <div class="column">
-                                            <img class="ui left image "
-                                                 src="../assets/imagens/icones/iconeGaragemPequeno.jpg">&nbsp;
+                                            <!--<img class="ui left image "
+                                                 src="../assets/imagens/icones/iconeGaragemPequeno.jpg">&nbsp;-->
+                                            <em data-emoji="oncoming_automobile" class="small"></em>
                                             <div style="font-size: 12px"><?php
                                                 if ($item['anuncio'][$crtl]['tipo'] == "casa" || $item['anuncio'][$crtl]['tipo'] == "apartamento" || $item['anuncio'][$crtl]['tipo'] == "salacomercial") {
                                                     echo $item['anuncio'][$crtl]['garagem'];
@@ -289,7 +287,7 @@
                                     <?php
                                 }
                                 ?>
-                                <div class="right floated"><h4><?php echo $item['anuncio'][$crtl]['bairro'] ?> </h4>
+                                <div class="right floated header"><h4><?php echo $item['anuncio'][$crtl]['bairro'] ?> </h4>
                                 </div>
                                 <div class="description">
                                     <!--                                    <br />-->
@@ -308,24 +306,31 @@
 
                                 </div>
                                 <br/>
-                                <div class="ui one column center aligned grid">
+                                <!--<div class="ui one column center aligned grid">
                                     <div class="column">
                                         <a id="btnDetalhe" class='ui twitter fluid button'
                                            href="<?php echo PIPURL; ?><?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>"
-                                           target="_blank">+ Detalhes</a>
+                                           target="_blank"> + Detalhes</a>
                                     </div>
+                                </div>-->
+                                <div class="meta">
+                                    <span class="date"><?php echo FuncoesAuxiliares::tempo_corrido($item['anuncio'][$crtl]['datahoracadastro']) ?><?php ?></span>
                                 </div>
                             </div>
                             <div class="extra content">
-                                <div class="ui checkbox">
+                                <!--<div class="ui checkbox">
                                     <input type="checkbox" name="selecionarAnuncio[]"
                                            id="selecionarAnuncio_<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>"
                                            value="<?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>">
                                     <label id="idsAnuncios">Selecionar</label>
+                                </div>-->
+                                <div class="ui one column center aligned grid">
+                                    <div class="column">
+                                        <a id="btnDetalhe" class='ui twitter fluid button'
+                                           href="<?php echo PIPURL; ?><?php echo $item['anuncio'][$crtl]['idanuncioformatado'] ?>"
+                                           target="_blank"> + Detalhes</a>
+                                    </div>
                                 </div>
-                                <span class="right floated">
-                                    <?php echo FuncoesAuxiliares::tempo_corrido($item['anuncio'][$crtl]['datahoracadastro']) ?><?php ?>
-                                </span>
                             </div>
                         </div>
                     <?php }
