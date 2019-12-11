@@ -67,7 +67,7 @@
     <input type="hidden" id="hdnCodAnuncio" name="hdnCodAnuncio"/>
     <input type="hidden" id="hdnTipoImovel" name="hdnTipoImovel"/>
     <input type="hidden" id="hdnTotalAnuncios" name="hdnTotalAnuncios" value="<?php echo $item['total'] ?>"/>
-    <div class="ui middle aligned one column grid container" id="lista">
+    <div class="ui one column centered container" id="lista">
         <?php if (count($item['anuncio']) > 0) { ?>
                 <div class="ui grid two column row">
                 <div id="paginador" class="left floated six wide column">
@@ -100,8 +100,8 @@
             <!--<div class="ui stackable special cards list">
             style="width: 263px; border-radius: 2.285714rem; box-shadow: 0 1px 3px 0 #D4D4DD,0 0 0 1px #000000"
             -->
-            <div class="ui stackable column grid">
-                <div id="itemContainer" class="ui stackable cards list">
+           <!-- <div class="ui stackable column grid">-->
+                <div id="itemContainer" class="ui four stackable cards">
 
                     <?php
                     for ($crtl = 0; $crtl < count($item['anuncio']); $crtl++) {
@@ -110,7 +110,7 @@
 //                        echo '</pre>';
                         ?>
                         <div data-valor="<?php echo $item['anuncio'][$crtl]['valormin'] ?>"
-                             ordem="<?php echo $item['anuncio'][$crtl]['ordem'] ?>" class="centered card list-item"
+                             ordem="<?php echo $item['anuncio'][$crtl]['ordem'] ?>" class="card"
                              id="cartao<?php echo $item['anuncio'][$crtl]['idanuncio'] ?>"
                              data-cadastro="<?php echo $item['anuncio'][$crtl]['datahoracadastro'] ?>">
                             <!--                            <div class="content">
@@ -337,7 +337,7 @@
                     ?>
                 </div>
 
-            </div>
+           <!-- </div> -->
         <?php }
         ?>
         <div class="ui stackable column grid">
